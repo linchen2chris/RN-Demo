@@ -9,16 +9,26 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  TextInput,
+  View,
+  Button,
+  Alert
 } from 'react-native';
+import MyApp from './MyApp.js';
 
 export default class myRN extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
+        <Text style={{backgroundColor: '#0F0', fontSize: 40}}>
+          Welcome to React Native! chris 🤣
         </Text>
+        <TextInput style={{height: 40}}
+                   placeholder="Type here to translate!"/>
+        <Button
+          onPress={() => { Alert.alert('You tapped the button!')}}
+          title="Press Me"
+        />
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
         </Text>
@@ -34,7 +44,8 @@ export default class myRN extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
