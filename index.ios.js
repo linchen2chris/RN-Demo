@@ -12,9 +12,11 @@ import {
   TextInput,
   View,
   Button,
-  Alert
+  Alert,
+  FlatList,
+  SectionList,
 } from 'react-native';
-import MyApp from './MyApp.js';
+import Movies from './src/components/Movies';
 
 export default class myRN extends Component {
   render() {
@@ -25,10 +27,26 @@ export default class myRN extends Component {
         </Text>
         <TextInput style={{height: 40}}
                    placeholder="Type here to translate!"/>
+        <Movies/>
         <Button
           onPress={() => { Alert.alert('You tapped the button!')}}
           title="Press Me"
         />
+          <FlatList
+            data={[
+              {key: 'Devin'},
+              {key: 'Jackson'},
+            ]}
+            renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+          />
+            <SectionList
+              sections={[
+                {title: 'D', data: ['Devin']},
+                {title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
+              ]}
+              renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+              renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+            />
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
         </Text>
